@@ -1,0 +1,9 @@
+button {
+  padding: 10px;
+}
+button:disabled {
+  background-color: gray;
+}
+input {
+  padding: 10px;
+}
