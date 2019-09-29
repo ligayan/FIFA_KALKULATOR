@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "67f89801301def7e9837e6693150b81d",
+    "revision": "056a4009782e8b6e660954c6f17ff627",
     "url": "/FIFA_KALKULATOR/index.html"
   },
   {
-    "revision": "628d293fc8d4483293c8",
+    "revision": "28902fa9aaeb5c46b96d",
     "url": "/FIFA_KALKULATOR/static/css/main.729573c3.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/FIFA_KALKULATOR/static/js/2.33367fcc.chunk.js"
   },
   {
-    "revision": "628d293fc8d4483293c8",
-    "url": "/FIFA_KALKULATOR/static/js/main.71638ec9.chunk.js"
+    "revision": "28902fa9aaeb5c46b96d",
+    "url": "/FIFA_KALKULATOR/static/js/main.14e3520b.chunk.js"
   },
   {
     "revision": "6d6943e4c4ed79908fbd",
