@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/FIFA_KALKULATOR/precache-manifest.c16b16d3fff142e7985216c04bb4c5fd.js"
+  "/FIFA_KALKULATOR/precache-manifest.5c3518da00c5e204aaf168edf3b04b9d.js"
 );
 
 self.addEventListener('message', (event) => {
