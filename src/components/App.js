@@ -3,18 +3,27 @@ import "./App.css";
 import Button from "./Button";
 
 class App extends Component {
-  state = { buy: 0, sell: 0, disabled: true };
+  state = { buy: "", sell: "", disabled: true };
 
   handleChangeBuy = e => {
-    this.setState({ buy: parseInt(e.target.value) });
+    if (e.target.value.length === 0) {
+      this.setState({ buy: "" });
+    } else {
+      this.setState({ buy: parseInt(e.target.value) });
+    }
   };
   handleChangeSell = e => {
-    this.setState({ sell: parseInt(e.target.value) });
+    if (e.target.value.length === 0) {
+      this.setState({ sell: "" });
+    } else {
+      this.setState({ sell: parseInt(e.target.value) });
+    }
   };
 
   handleAddChangeBuy = () => {
     if (this.state.buy < 1000) {
-      this.setState({ buy: this.state.buy + 50 });
+      const buyInt = parseInt(this.state.buy + 50);
+      this.setState({ buy: buyInt });
     } else if (this.state.buy >= 1000 && this.state.buy < 10000) {
       this.setState({ buy: this.state.buy + 100 });
     } else if (this.state.buy >= 10000 && this.state.buy < 99999) {
@@ -26,7 +35,8 @@ class App extends Component {
 
   handleAddChangeSell = () => {
     if (this.state.sell < 1000) {
-      this.setState({ sell: this.state.sell + 50 });
+      const sellInt = parseInt(this.state.sell + 50);
+      this.setState({ sell: sellInt });
     } else if (this.state.sell >= 1000 && this.state.sell <= 10000) {
       this.setState({ sell: this.state.sell + 100 });
     } else if (this.state.sell >= 10000 && this.state.sell <= 99999) {
@@ -38,7 +48,7 @@ class App extends Component {
 
   handleSubtractChangeBuy = () => {
     if (this.state.buy <= 0) {
-      this.setState({ buy: 0 });
+      this.setState({ buy: "" });
     } else if (this.state.buy <= 1000) {
       this.setState({ buy: this.state.buy - 50 });
     } else if (this.state.buy >= 1000 && this.state.buy <= 10000) {
@@ -52,7 +62,7 @@ class App extends Component {
 
   handleSubtractChangeSell = () => {
     if (this.state.sell <= 0) {
-      this.setState({ sell: 0 });
+      this.setState({ sell: "" });
     } else if (this.state.sell < 1000) {
       this.setState({ sell: this.state.sell - 50 });
     } else if (this.state.sell >= 1000 && this.state.sell <= 10000) {
@@ -73,15 +83,20 @@ class App extends Component {
         <h1>FIFA KALKULATOR</h1>
         <p>Kupno</p>
         <Button
-          disabled={this.state.buy === 0 ? true : false}
+          disabled={this.state.buy === "" ? true : false}
           content="-"
           click={this.handleSubtractChangeBuy}
         />
-        <input type="number" value={buy} onChange={this.handleChangeBuy} />
+        <input
+          required="required"
+          type="number"
+          value={buy}
+          onChange={this.handleChangeBuy}
+        />
         <Button content="+" click={this.handleAddChangeBuy} />
         <p>Sprzedaż</p>
         <Button
-          disabled={this.state.sell === 0 ? true : false}
+          disabled={this.state.sell === "" ? true : false}
           content="-"
           click={this.handleSubtractChangeSell}
         />
@@ -90,7 +105,7 @@ class App extends Component {
         <h3>Wartość podatku : {(buy * 0.05).toFixed(0)}</h3>
         <h3>Wartość sprzedaży : {(buy - buy * 0.05).toFixed(0)}</h3>
         <h3>Sprzedaj za minimum : {(buy / 0.95).toFixed(0)}</h3>
-        <h3>Zysk : {zysk}</h3>
+        {sell === "" ? null : <h3>Zysk : {zysk}</h3>}
       </div>
     );
   }
